@@ -1,0 +1,173 @@
+1. According to TCP/IP model identify which layer the below given protocols belong
+to: -
+
+
+SNMP: - collects network related information -- -------------------------------- Application Layer (layer 4 )
+HDLC: -Layer 2 encapsulation protocol, cisco proprietary.----------------------- Network Interface Layer ( layer 1)
+UDP: -User datagram protocol (unreliable but faster delivery of data).---------- Transport layer (layer 3)
+TCP: -Reliable delivery of data.------------------------------------------------ Transport layer (layer 3)
+SMTP: -Simple mail transfer protocol, used for mail delivery.------------------- Application Layer (layer 4 )
+PPP: -encapsulation protocol, open standard.------------------------------------ Network Interface Layer ( layer 1)
+FTP: -File transfer protocol, used for transferring files.---------------------- Application Layer (layer 4 )
+IP: Internet protocol.---------------------------------------------------------- Internet Layer (layer 2)
+ICMP: Internet control message protocol, used for testing network connectivity.- Internet Layer (layer 2)
+IGMP: used for management of multicast group.----------------------------------- Internet Layer (layer 2)
+SFTP: Secure file transfer protocol, used for transfer of files in secured way.- Application Layer (layer 4 )
+Telnet: Used for creating telnet sessions -------------------------------------- Application Layer (layer 4 )
+
+
+
+
+2. Identify the number of collision and broadcast domains 
+Collision domain - 9
+Broadcast domain - 4
+
+
+
+
+3. Given an IP address of 100.100.100.100 and knowing the client needs 21 subnets.
+Deduce the following
+a. The class of the IP address ___class A__________
+b. The default subnet mask is _____255.0.0.0_____________
+c. The network address is __________100.0.0.0___________
+d. The required subnet mask is _________255.248.0.0________.
+e. The maximum number of subnets that are available with this subnet mask is____2^5 = 32
+f. List all available subnets. 
+              - 100.0.0.0/255.248.0.0 - 100.0.0.0/13
+					100.8.0.0/13
+					100.16.0.0/13
+					......
+					100.248.0.0/13
+
+
+g. The subnet that this IP address falls on is ________100.96.0.0___________
+h. The host address __________________________0.4.100.100_____________
+i. The range of host IP addresses that occur on this subnet is _____
+	100.96.0.0(N), 100.96.0.1,100.96.0.2,...,100.96.0.255,100.96.1.0,....100.96.1.255.....100.103.255.254(last host),100.103.255.255
+
+j. The maximum number of hosts that can occur on this subnet is __2^19-2___
+k. The class of this IP address is________A_______
+
+
+
+
+
+4. Say you are given a Class C subnet such as 200.200.200.0/24 and need 4 networks
+a. Network A with up to 40 hosts
+b. Network B with up to 50 hosts
+c. Network C and D with 10 hosts each
+ Use VLSM and suggest appropriate allocations such that resources are conserved. 
+
+
+Solution - 
+Required 110 hosts-
+			A 40-- 200.200.200.00/26 --- total 64-2 IPs
+			B 50-- 200.200.200.64/26 ---- Total 64-2 IPs
+			C 10-- 200.200.200.128/28 --- Total 16-2 IPs
+			D 10-- 200.200.200.144/28 --- Total 16-2 IPs
+			reserved - 200.200.200.192/26 -- 64-2 IPs   mnbvghjkl;    
+
+a. When a new trunk link is configured on an IOS-based switch, which VLANs
+are allowed over the link?  
+ans i. By default, all VLANs are allowed on trunk
+
+
+b. Static VLANs are being used on the Company network. What is true about
+static VLANs?
+
+ans ii Attached devices are unaware of any VLANs 
+
+c. Pick the trunking protocols used on a trunk link between two Cisco
+switches? 
+ans  v 802.1Q
+
+
+d. When the source and the destination can be reached through the same port
+of a switch, the switch 
+ans iii. Filters the frame 
+
+
+e. The VTP functions at which layer of the OSI Model? 
+ans ii. Data link layer 
+
+6. Derive information from the topology and answer the questions given below
+
+a. Write down the root-bridge ID
+b. List the root ports and designated ports
+c. Identify the Non-designated ports 
+
+Answer:a) Bridge id is 64 bit value i.e <16 bit priority><48 bit mac-address>. Root bridge id is the one with least priority so
+	Root Bridge id is <4096><0060.5CC0.0424>
+	
+	b) root port
+	- is the port on a bridge through which traffic flows towards the root
+	- every bridge has one root port except the root bridge
+	So the root ports are fa0/2 on switch4 and fa0/3 on switch5
+	
+	Designated ports - 
+	switch3- fa0/3 , fa0/1, fa0/3
+	switch5 is chosen over switch4 because of lower bridge id so designated ports are fa0/2
+
+	c) Non designated ports are - switch4 fa0/1
+				      switch5 fa0/1
+
+
+
+
+7. Etherchannel, LACP and PgP
+a. What type of interface represents an Etherchannel as a whole? 
+
+ans iii Port channel
+
+b. Which of these is a method for negotiating an Etherchannel?
+
+ans iv LACP
+
+c. Which of the following is a valid Etherchannel negotiation mode combination
+between two switches?
+
+ans ii. PAgP auto, PAgP desirable 
+
+8.Match the following and fill in the last column 
+
+					Jumbled			correct
+			
+ 	1 RIPv2 updates 		255.255.255.255       	224.0.0.9
+	2 Supports subnetting and
+	  authentication 		RIPv1			RIPv2
+	3 Classful routing protocol 	224.0.0.9		RIPv1
+	4 RIPv1 updates 		UDP port no.520		255.255.255.255
+	5 RIPv1 and RIPv2 messages 	RIPv2			UDP port no.520
+
+
+
+
+
+9. Debug and find the reasons for non-establishment of adjacency in the below topology
+using the information available in the Hello messages.
+
+Ans: As the subnet mask and hello time is not same in the hello messages so there is no adjacency.
+
+
+Debugging:
+
+In router 7 wee will make the following changes
+ ip address 192.168.1.242 255.255.255.252   -->   ip address 192.168.1.242 255.255.255.248
+ip ospf hello-interval 20                   -->  ip ospf hello-interval 10
+network 192.168.1.240 0.0.0.3 area 0        -->  network 192.168.1.240 0.0.0.7 area 0
+
+
+
+
+
+10. Border gateway protocol
+a. What is the range of autonomous system numbers (ASNs) that can be
+assigned to a network using BGP? 
+
+Ans iv. 1 to 65,535 
+
+
+b. What kind of BGP session is established between two routers that are
+adjacent, but in two different Autonomous Systems?
+
+Ans i. External BGP (eBGP)
