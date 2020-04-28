@@ -65,8 +65,9 @@ Required 110 hosts-
 			B 50-- 200.200.200.64/26 ---- Total 64-2 IPs
 			C 10-- 200.200.200.128/28 --- Total 16-2 IPs
 			D 10-- 200.200.200.144/28 --- Total 16-2 IPs
-			reserved - 200.200.200.192/26 -- 64-2 IPs   mnbvghjkl;    
+			reserved - 200.200.200.192/26 -- 64-2 IPs    
 
+5.
 a. When a new trunk link is configured on an IOS-based switch, which VLANs
 are allowed over the link?  
 ans i. By default, all VLANs are allowed on trunk
